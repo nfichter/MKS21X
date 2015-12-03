@@ -1,0 +1,10 @@
+git init - initializes a new repository
+git status - checks status of changes
+git add <filename> - adds a file to the staging area
+git diff <filename> - checks the differences between the working directory and the staging area
+git commit -m "<message>" - commits the changes and adds a message to specify what the changes were
+git log - prints a log of commits
+git show HEAD - shows the HEAD (usually latest) commit
+git checkout HEAD <filename> - restores the file to the pre-last commit
+git reset HEAD <filename> - unstages the file from the staging area without deleting anything
+git reset SHA - restores the file to a specified commit, using the first 7 characters of the SHA

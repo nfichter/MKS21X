@@ -8,3 +8,5 @@ git show HEAD - shows the HEAD (usually latest) commit
 git checkout HEAD <filename> - restores the file to the pre-last commit
 git reset HEAD <filename> - unstages the file from the staging area without deleting anything
 git reset SHA - restores the file to a specified commit, using the first 7 characters of the SHA
+bogus change 1
+bogus change 2

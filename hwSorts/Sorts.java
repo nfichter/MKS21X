@@ -12,7 +12,7 @@ public class Sorts {
 	System.out.println("}");
     }
 	
-    public static void insertionSort(int[] a) {
+    public static void insertion(int[] a) {
 	for (int i = 1; i < a.length; i++) {
 	    int holder = a[i];
 	    int j;
@@ -22,11 +22,30 @@ public class Sorts {
 	    a[j+1] = holder;
 	}
     }
+
+    public static void selection(int[] a) {
+	for (int i = 0; i < a.length; i++) {
+	    int min = i;
+	    for (int j = i; j < a.length; j++) {
+		if (a[j] < a[min]) {
+		    min = j;
+		}
+	    }
+	    int holder = a[i];
+	    a[i] = a[min];
+	    a[min] = holder;
+	}
+    }
 	
     public static void main(String[]args) {
 	int[] a = {8, 6, 7, 5, 3, 0, 9};
 	printArray(a);
-	insertionSort(a);
+	insertion(a);
 	printArray(a);
+
+	int[] b = {8, 6, 7, 5, 3, 0, 9};
+	printArray(b);
+	selection(b);
+	printArray(b);
     }
 }

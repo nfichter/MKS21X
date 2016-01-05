@@ -1,4 +1,6 @@
 public class Sorts {
+    private static boolean debug = true;
+
     public static void printArray(int[] a) {
 	System.out.print("{");
 	for (int i = 0; i < a.length; i++) {
@@ -12,7 +14,7 @@ public class Sorts {
 	System.out.println("}");
     }
 	
-    public static void insertion(int[] a) {
+    public static void insertionSort(int[] a) {
 	for (int i = 1; i < a.length; i++) {
 	    int holder = a[i];
 	    int j;
@@ -20,11 +22,14 @@ public class Sorts {
 		a[j+1] = a[j];
 	    }
 	    a[j+1] = holder;
+	    if (debug) {
+		 printArray(a);
+	    }
 	}
     }
 
-    public static void selection(int[] a) {
-	for (int i = 0; i < a.length; i++) {
+    public static void selectionSort(int[] a) {
+	for (int i = 0; i < a.length-1; i++) {
 	    int min = i;
 	    for (int j = i; j < a.length; j++) {
 		if (a[j] < a[min]) {
@@ -34,18 +39,42 @@ public class Sorts {
 	    int holder = a[i];
 	    a[i] = a[min];
 	    a[min] = holder;
+	    if (debug) {
+		printArray(a);
+	    }
+	}
+    }
+
+    public static void bubbleSort(int[] a) {
+	for (int i = 0; i < a.length; i++) {
+	    for (int j = 0; j < a.length-1-i; j++) {
+		if (a[j] > a[j+1]) {
+		    int holder = a[j];
+		    a[j] = a[j+1];
+		    a[j+1] = holder;
+		}
+	    }
+	    if (debug) {
+		printArray(a);
+	    }
 	}
     }
 	
     public static void main(String[]args) {
-	int[] a = {8, 6, 7, 5, 3, 0, 9};
+	int[] a = {1, 2, 9, 5, 0, 3};
 	printArray(a);
-	insertion(a);
-	printArray(a);
+	insertionSort(a);
 
-	int[] b = {8, 6, 7, 5, 3, 0, 9};
+	System.out.println();
+
+	int[] b = {1, 2, 9, 5, 0, 3};
 	printArray(b);
-	selection(b);
-	printArray(b);
+	selectionSort(b);
+
+	System.out.println();
+
+	int[] c = {1, 2, 9, 5, 0, 3};
+	printArray(c);
+	bubbleSort(c);
     }
 }

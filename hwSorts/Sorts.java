@@ -46,12 +46,15 @@ public class Sorts {
     }
 
     public static void bubbleSort(int[] a) {
-	for (int i = 0; i < a.length; i++) {
+	int switches = 1;
+	for (int i = 0; i < a.length && switches != 0; i++) {
+	    switches = 0;
 	    for (int j = 0; j < a.length-1-i; j++) {
 		if (a[j] > a[j+1]) {
 		    int holder = a[j];
 		    a[j] = a[j+1];
 		    a[j+1] = holder;
+		    switches++;
 		}
 	    }
 	    if (debug) {
